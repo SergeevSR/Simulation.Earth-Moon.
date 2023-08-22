@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)https://hlavolam.maweb.eu/number-of-combinations-for-rubiks-cube -->
+<html data-lt-installed="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=790">
+
+<link rel="stylesheet" href="./Number of combinations for the NxNxN Rubik&#39;s cube_files/general.css" type="text/css">
+
+<title>Number of combinations for the NxNxN Rubik's cube</title>
+	
+<style type="text/css" id="operaUserStyle"></style></head>
+
+<body class="google-mobil">
+<!-- wrap starts here -->
+<div id="wraphl">
+		
+	
+	  
+	<!--header -->
+	<div id="header">			
+				
+		<span id="logo-text"><a href="https://hlavolam.maweb.eu/">hlavolam má web</a></span>		
+		<p id="slogan"><a href="https://hlavolam.maweb.eu/">nejen o skládání kombinatorických hlavolamů</a></p>	
+        <div id="logo1"></div>
+         <div id="logo2"></div>
+          <div id="logo3"></div>
+           <div id="logo4"></div>
+            <div id="logo5"></div>	
+			
+		<div id="header-links">
+			<p>
+			<a href="https://hlavolam.maweb.eu/contact">Contact</a>	
+			</p>		
+		</div>	
+        
+						
+	</div>
+		
+	<!-- navigation -->	
+	<div id="menu">
+		<ul>
+			<li><a href="https://hlavolam.maweb.eu/#english-version">Home</a></li>
+			<li><a href="https://hlavolam.maweb.eu/rubiks-cube-3x3x3">3x3x3 Rubik's cube</a></li>
+			<li><a href="https://hlavolam.maweb.eu/rubiks-cube-blindfolded">Rubik's cube - blindfolded solving</a></li>
+			<li><a href="https://hlavolam.maweb.eu/puzzles">Solutions to combinatorial puzzles</a></li>	
+		</ul>
+	</div>					
+			
+	<!-- content-wrap starts here -->
+	<div id="content-wrap">
+		
+		<div id="mainhl">				
+				
+			<h1>Number of combinations for the NxNxN Rubik's cube</h1>
+				
+            
+            <p><br>
+            Consider an NxNxN Rubik's cube, where N denotes the number of layers. Surely you will agree that when comparing two cubes of different N, the one with higher N is harder to solve (5x5x5 cube is harder than 
+a 2x2x2). At least in terms of time. Why is that so?
+            </p>
+
+<p>
+It's because a cube with higher N has more movable pieces, which results in a greater number of combinations that can occur on it. It's a direct proportion - the more pieces, the more combinations, 
+the longer time horizon we need to solve it.
+</p>
+
+<p>
+Number of combinations for an NxNxN Rubik's cube can be even expressed by a couple of formulas. For the one 
+which is being presented on this page I would like to thank <a href="http://www.mzrg.com/" target="_new">Michael Gottlieb</a> very much, who literally guided me to it. I discussed the equation with him several times. 
+</p>
+
+<p>
+Number of combinations (also known as configurations or states) which can occur on an NxNxN Rubik's cube is equal to 
+</p>
+
+<table align="center">
+	<tbody><tr><td align="center"><img class="b-lazy b-loaded" src="./Number of combinations for the NxNxN Rubik&#39;s cube_files/pocet kombinaci rubikovy kostky.gif" alt="number of combinations for rubik&#39;s cube" width="557" height="114"><noscript>enable JavaScript</noscript></td></tr>
+</tbody></table>
+
+
+<p>
+where <i>N</i> is the number of layers, the exclamation mark is a factorial and mod is a modulo. Modulo is a 
+mathematical operation - more about it can be found on wikipedia, for example. For our purposes is sufficient the information that the index of the first bracket from the left takes only values of 0 or 1. If N is an even number, the index equals 0. If N is an odd number, the index equals 1. It should be noted that the equation doesn't contain square brackets. What may seem like a square bracket in the index at first glance is in fact a floor function (notice that the top "beak" is missing). Floor function is also described on wikipedia, for instance. Simply put, it is a number that is before the decimal point. Numbers not containing a decimal point (let's denote them as X) can be imagined e.g. in the form of X.00. Then a floor function equals X. 
+</p>
+
+<p>
+It should be noted that the formula is valid for N &gt; 1. Fortunately, for N = 1 we don't have to calculate anything because a 1x1x1 Rubik's cube has only one possible combination.
+</p>
+
+
+<p>
+Maybe you are thinking: "well, starting with a 4x4x4 cube, the centers are composed of several pieces. These center pieces can be also mutually swapped (permuted), so a total number of combinations will be greater". You're right, but only like in the Russian fairly tale - i.e. partially right. Center cubies for "bigger" cubes (for N &gt; 3) can be truly permuted with each other, however, we may not register it. Center cubies of one color appear to be identical to us, thus we cannot really recognize them.
+</p>
+
+
+<p>
+Unless we would make center cubies distinguishable from each other. If you paint a picture (on cube's centers) that will be solved only in one combination of cubies, the <a href="https://hlavolam.maweb.eu/supercube" target="_new">Supercube</a> will be created. There is a modified formula for a Supercube - <a href="http://www.speedcubing.com/chris/cubecombos.html" target="_new">Chris Hardwick</a> presents one, for example. The more pieces we can mutually distinguish on a Rubik's cube, the greater number of combinations the puzzle will have.
+</p>
+          
+<p>
+For the formula written above, I have made a simple online <a href="http://www.wolframalpha.com/input/?i=for+N%3D3+7!*3^6*%2824*2^10*12!%29^%28N+mod2%29*%2824!%29^floor%28%28N-2%29%2F2%29*%2824!%2F4!^6%29^floor%28%28%28N-2%29%2F2%29^2%29" target="_new" rel="nofollow">calculator</a>. Just rewrite a value of N in "for N=3" at the beginning of the enter line. As you can see, a calculator is set to N = 3 by default.
+</p>
+
+<p>
+Ken Silverman is the author of a <a href="http://advsys.net/ken/download.htm#rubix" target="_new">1x1x1 - 256x256x256 Rubik's cube</a> simulator. Even bigger cubes can be theoretically solved using an <a href="http://mzrg.com/rubik/iso/" target="_new">IsoCubeSim</a> application (made by Michael Gottlieb; it offers LxMxN cubes as well). Personally, I like better a <a href="http://www.motus-software.com/rubix.htm" target="_new">Rubix simulator</a> (2x2x2 - 50x50x50 cubes), whose author is Peter Bone. Although it offers smaller cube dimensions, for an ordinary mortal human being it is still sufficient. In addition, I like better a cube manipulation via the mouse on this simulator. But that's probably just about getting used to it.
+</p>
+
+<p>
+Now let's derive the formula stated above (you can skip this part - a derivation ends by a blue title "1x1x1 Rubik's cube"). In order to begin, it is first needed to realize what pieces will be actually included into the equation. A 3x3x3 Rubik's cube consists of three piece types: centers, edges and corners. A 5x5x5 Rubik's cube, however, has more pieces. 
+</p>
+
+<p>
+Thus we must take into account the following pieces: <strong>fixed centers, movable centers, central edges, wing edges and corners</strong>.
+</p>
+
+<table align="center">
+<tbody><tr>
+<td align="center">
+<img class="b-lazy b-loaded" src="./Number of combinations for the NxNxN Rubik&#39;s cube_files/typy-dilku-rubikovy-kostky.png" alt="Piece types of a Rubik&#39;s cube" width="200" height="200">
+</td>
+</tr>
+<tr>
+  <td align="center">Fig. 1 - Piece types of 7x7x7 Rubik's cube and depiction of composite edge</td></tr>
+</tbody></table>
+
+<p>
+One outer layer of a 7x7x7 Rubik's cube is graphically illustrated on Fig. 1. <span style=" color:#000"><b>Fixed center</b></span> is depicted in black, movable centers are depicted in yellow, gray and orange, <span style=" color:#F00"><b>central edges</b></span> are depicted in red, <span style=" color:#00F"><b>wing edges</b></span> are depicted in blue and finally the <span style=" color:#090"><b>corners</b></span> are depicted in green.
+</p>
+
+<p>
+You may be wondering why movable centers have three colors?  It's because those are three independent piece types. Just as you can not swap a corner with a (central) edge on a 3x3x3 Rubik's cube, you can't swap yellow with either gray or orange movable pieces. Yellow movable centers are called "<span style=" color:#EAEA00"><b>+centers</b></span>" (along with a fixed center they form a "+" sign), while gray movable centers are called "<span style=" color:#999"><b>X-centers</b></span>" (along with a fixed center they form an "X" sign), and orange movable centers are called "<span style=" color:#F93"><b>oblique centers</b></span>" (along with a fixed center they form an oblique angle I guess). For further considerations there will be no need to mutually distinguish these three piece types, hence they will be collectively called as movable centers.
+</p>
+
+<p>
+Next, we can observe a purple set of pieces on Fig. 1. By <span style=" color:#63C"><b>composite edge</b></span> we call a formation which is composed of wing edges and central edge, and is adjacent to two corners. Since <b>"even cubes" (N = even number)</b> don't have central edges, their composite edge consists of only the wing edges. On contrary, <b>"odd cubes" (N = odd number)</b> have both wing and central edges. So, in case of a 4x4x4 Rubik's cube, one composite edge is composed of two wing edges, while one composite edge in case of a 5x5x5 Rubik's cube consists of one central edge and two wing edges.
+</p>
+
+<p>
+If we imagine a composite edge like an airplane, then the central edge represents the hull and the wing edges represent the airplane wings - thence the wing edge naming (the idea applies to odd cubes but the principle remains the same for even cubes as well).
+</p>
+
+<p>
+We cannot "move" fixed center. They are present on odd cubes, whereas we won't find them on even cubes.
+</p>
+
+<p>
+Movable centers are present on all cubes for N &gt; 3. For instance, in case of a 4x4x4 Rubik's cube we designate 4 inner pieces on each face of a cube as movable centers. For a 5x5x5 Rubik's cube we designate inner 3x3 square of pieces minus fixed center in terms of one face as movable centers. Thus there are 8 pieces in case of a 5x5x5 cube.
+</p>
+
+<p>
+Central edges have the same properties as the edges on a 3x3x3 cube and we will find them exclusively on odd cubes.
+</p>
+
+<p>
+For N &gt; 1, there are always 8 corner pieces (corners in short) on a cube.
+</p>
+
+<p>
+Technically speaking, the relation mentioned above is a combination of two formulas - one for calculating the combinations for odd cubes and the other one for calculating the combinations for even cubes. In order to express both these formulas by just one formula, it was necessarry to choose some kind of reference point that determines "cube position". Fixation of fixed centers can be chosen as a reference point, for example. But it is impossible to do for even cubes because a fixed center isn't present on them. Therefore, fixation of one corner on a cube has been chosen as a reference point.
+</p>
+ 
+<p>
+After fixation of one corner, the remaining corners can be permuted (moved, swapped) by <b>7!</b> ways and oriented by <b>3<sup>6</sup></b> ways while keeping a fixed orientation of given fixed corner (one out of seven corners must submit to the orientation of a fixed corner).  
+</p>
+
+<p>
+Fixed centers can be permuted while fixing one corner in case of odd cubes - if certain center is 
+situated on the right face, on the left face is situated opposite center unambiguously. Remaining 4 centers may be permuted by an M move by 4 ways. Since there are 6 faces (i.e. we can place 6 different centers to the right face), a total number of center permutations is equal to the product of 6·4. Center orientations are mutually indistinguishable, hence there is only 1 case =&gt; number of combinations for fixed centers is therefore 6·4·1 = <b>24</b>.<br>
+In case of odd cubes, it further applies that central edges may be oriented by 2<sup>11</sup> ways and permuted by 12!/2 ways (see more at <a href="https://hlavolam.maweb.eu/rubiks-cube-3x3x3#notation" target="_new">Rubik's cube notation</a>). So <b>2<sup>10</sup>·12!</b> possible combinations.<br>
+In order to consider these products for odd cubes and simultaneously not consider them for even cubes 
+(which have neither fixed centers nor central edges), modulo operation will be used - exponent of <b>N mod2</b>, to be specific.   
+</p>
+
+<p>
+Wing edges can be permuted by 24! ways and oriented by 1 way in its orbit (i.e. an orbit in which they may appear) =&gt; 24!·1 = <b>24!</b> possible combinations. There are (N-3)/2 orbits for odd cubes, whereas there are (N-2)/2 orbits in case of even cubes. Without a loss of generality, these two terms can be collectively expressed as a <b>floor function of ((N-2)/2)</b>.
+</p>
+
+<p>
+In each orbit of movable centers there are <b>24!/(4!<sup>6</sup></b>) combinations, because each orbit of movable centers has 4 identical pieces in terms of one face (6 of them in total) on a cube. In other words, there are 24 pieces in one orbit of movable centers and 4 indistinguishable pieces in color are situated on each face of a cube. For even cubes, there are ((N-2)·(N-2))/4 = ((N-2)/2)<sup>2</sup> orbits of movable centers, whereas in case of odd cubes, there are ((N-1)·(N-3))/4 = ((N-2)/2)<sup>2</sup>-1/4 such orbits of movable centers. Without a loss of generality, these two terms can be collectively expressed as a <b>floor function of (((N-2)/2)<sup>2</sup>)</b>.
+</p>
+
+<p>
+A short list of some cubes with different number of layers is following. Times achieved by the <a href="https://hlavolam.maweb.eu/Speedcubing" target="_new">fastest cubers</a> are added.
+</p>
+
+    
+<p></p> <h2>1x1x1 Rubik's cube</h2>	
+
+<p>
+The cube has only one position. Solving time is less than one tenth of a second.
+</p>
+
+
+<p></p> <h2>2x2x2 Rubik's cube</h2>
+
+<p>
+The cube has 3 674 160 combinations (7 digits). Solving time is less than 2 seconds.
+</p>
+
+<p></p> <h2>3x3x3 Rubik's cube</h2>
+
+<p>
+Number of cube combinations is equal to a number of 20 digits. Solving time is less than 6 seconds.
+</p>
+
+<p></p> <h2>4x4x4 Rubik's cube</h2>
+
+<p>
+Number of cube combinations is equal to a number of 46 digits. Solving time is about 20 seconds.
+</p>
+
+<p></p> <h2>5x5x5 Rubik's cube</h2>
+
+<p>
+Number of cube combinations is equal to a number of 75 digits. Solving time is roughly 38 seconds.
+</p>
+
+<p></p> <h2>6x6x6 Rubik's cube</h2>
+
+<p>
+Number of cube combinations is equal to a number of 117 digits. Solving time is around 1 minute and 15 seconds.
+</p>
+
+<p></p> <h2>7x7x7 Rubik's cube</h2>
+
+<p>
+The "biggest" cube which can be competed with. Number of combinations is equal to a number of 161 digits. Solving time is around 1 minute and 50 seconds.
+</p>
+
+<p></p> <h2>20x20x20 Rubik's cube</h2>
+
+<p>
+Twice in my life I tried to solve this pettiness. For the first time it took me 20 hours, for the second time it took me a little bit over 8 hours (I already knew how to do it and what to be beware of when solving). Number of combinations is equal to a number of 1 478 digits. World record (unofficial, of course) solving time is 53 minutes and 10 seconds, set by Michael Gottlieb.
+</p>
+
+<p></p> <h2>33x33x33 Rubik's cube</h2>
+
+<p>
+The biggest fully functional real cube ever made (not mass-produced, though) since 2017. Number of combinations is equal to a number of 4 100 digits. Solving time is long.
+</p>
+
+<p></p> <h2>111x111x111 Rubik's cube</h2>
+
+<p>
+In May 2013, Michael Gottlieb solved such a big cube in less than 30 hours of solving time (29 hours, 52 minutes and 2.64 seconds). Number of cube combinations is equal to a number of 47 374 digits. The cube has been solved by means of a modification of Cage method.
+</p>
+
+<p></p> <h2>121x121x121 Rubik's cube</h2>
+
+<p>
+In September 2013, Adrian Acosta solved this giant cube in 89 hours, 2 minutes and 2.26 seconds of solving time. He spent 2 106 hours (i.e. about 3 months) on his attempt in total. Number of combinations is equal to a number of 56 334 digits. He used centers-first (edges-last) solving method and even though the method has been quite optimized, he needed 623 523 moves to solve the cube.
+</p>
+
+<p></p> <h2>128x128x128 Rubik's cube</h2>
+
+<p>
+In November 2014, Michael Gottlieb spent 26 hours, 25 minutes and 19 seconds to solve this puzzle. He had to arrange 96 776 cubies / pieces in total and that has been done using only 157 318 moves!!! His ratio of turns per second (1.65) is remarkable as well!  The number of possible combinations for this titan is represented by 63 071 digits. Michael, similarly to his attempt on a 111x111x111 cube, used a modified / optimized Cage method. 
+</p>
+
+<p></p> <h2>150x150x150 Rubik's cube</h2>
+
+<p>
+The biggest cube ever solved by a human being. Ben Whitmore saw something like this on a screen in front of him at 10:06 a.m. on February 16, 2020: 
+</p>
+
+<table align="center">
+	<tbody><tr><td align="center"><img class="b-lazy b-loaded" src="./Number of combinations for the NxNxN Rubik&#39;s cube_files/rubikova-kostka-150x150x150.jpg" alt="150x150x150 rubik&#39;s cube" width="711" height="711"></td></tr>
+</tbody></table>
+
+<p>
+21 days, 16 hours and 1 minute later, he already got a solved puzzle. He hasn't been solving non-stop, he used only 8.2 % of this time period. Therefore, his solving time was only 42 hours, 40 minutes and 26 seconds! Similarly to the previous record holder (Michael Gottlieb), Ben was using a modified / optimized <a href="https://hlavolam.maweb.eu/parity-problem#cage-method" target="_new">Cage method</a> on his attempt as well. A list of some other statistics follows:
+</p>
+
+<p>
+Number of moves: 239 283 <br>
+Number of turns per second: 1.558 (!!!)<br>
+Number of cube rotations: 76 458<br>
+Number of pieces / cubies: 133 208<br>
+Number of combinations:  a number of 86 708 digits
+</p>
+
+
+<p><br><br>
+<i>The page was graphically improved by <a href="https://hlavolam.maweb.eu/puzzles#links" target="_new">Conrad Rider</a> and Ken Silverman (see a link above).</i>
+</p>
+
+
+
+		</div>
+				
+	<!-- content-wrap ends here -->	
+	</div>
+					
+	<!--footer starts here-->
+	<div id="footer">
+			
+		<p>
+		<strong><a href="https://hlavolam.maweb.eu/#english-version">hlavolam.maweb.eu</a></strong> | <a href="https://hlavolam.maweb.eu/rubiks-cube-3x3x3">3x3x3 Rubik's cube</a> | <a href="https://hlavolam.maweb.eu/rubiks-cube-blindfolded">Rubik's cube - blindfolded solving</a><br> 
+        <a href="https://hlavolam.maweb.eu/puzzles">Solutions to combinatorial puzzles</a> | <a href="https://hlavolam.maweb.eu/#puzzle-related-articles">Puzzle-related articles</a>
+		  
+         		
+   	</p>
+				
+	</div>
+    
+    <!--<div class="Reklama">ADVERTISEMENT:</div>-->
+    <div class="reklama"><endora></endora></div>
+<!-- wrap ends here -->
+</div>
+<script src="./Number of combinations for the NxNxN Rubik&#39;s cube_files/blazy.js.загружено"></script>
+    <script>
+        ;(function() {
+            var bLazy = new Blazy();
+        })();
+    </script>
+
+
+
+
+</body></html>
